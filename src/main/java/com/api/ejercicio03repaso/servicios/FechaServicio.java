@@ -13,8 +13,7 @@ public class FechaServicio {
     }
 
     public Fecha fechaIncrementDays(int daysToIncrement) {
-        LocalDate today = LocalDate.now();
-        today = today.plusDays(daysToIncrement);
+        LocalDate today = LocalDate.now().plusDays(daysToIncrement);
         return new Fecha(today.getDayOfMonth(), today.getMonthValue(), today.getYear());
     }
 
