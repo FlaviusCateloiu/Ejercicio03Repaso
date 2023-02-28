@@ -1,6 +1,7 @@
 package com.api.ejercicio03repaso.servicios;
 
 import com.api.ejercicio03repaso.modelos.Fecha;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -18,6 +19,7 @@ public class FechaServicio {
     }
 
     public Fecha fechaCrear(Fecha fechaACrear) {
-        return new Fecha(fechaACrear.getDay(), fechaACrear.getMonth(), fechaACrear.getYear());
+        LocalDate fechaCorrecta = LocalDate.of(fechaACrear.getYear(), fechaACrear.getMonth(), fechaACrear.getDay());
+        return new Fecha(fechaCorrecta.getDayOfMonth(), fechaCorrecta.getMonthValue(), fechaCorrecta.getYear());
     }
 }
